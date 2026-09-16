@@ -7,6 +7,13 @@
  * restart). The PTY itself (and its output buffer) lives host-side, so the
  * shell survives tab switches: a remount replays from cursor 0 and the host
  * returns the retained scrollback.
+ *
+ * The root declares `data-conversation-composer-overlay` (the sanctioned
+ * full-height view contract: the render site constrains `.viewArea` to
+ * `flex: 1 1 0; min-height: 0; overflow: hidden`, so the terminal gets a real
+ * viewport instead of growing with its content) and
+ * `data-conversation-composer-hidden` (hide the global prompt bar — the
+ * terminal is its own input surface, taking keystrokes directly).
  */
 
 import { useEffect, useRef, useState } from 'react'
@@ -196,7 +203,7 @@ export function ShellTerminalView({ control }: SessionShellViewProps): JSX.Eleme
   }, [control])
 
   return (
-    <div style={styles.root} data-conversation-composer-hidden="">
+    <div style={styles.root} data-conversation-composer-overlay="" data-conversation-composer-hidden="">
       <div style={styles.statusBar}>
         <span style={styles.statusText}>
           {cwd !== null ? cwd : status === 'connecting' ? 'Connecting…' : 'Session shell'}

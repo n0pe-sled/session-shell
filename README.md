@@ -15,6 +15,10 @@ keys sent to the shell on the host exactly like a real terminal.
   the retained scrollback. Each session gets its own shell.
 - Input is delivered verbatim, so Ctrl-C, arrows, job control, and full-screen
   TUIs behave normally.
+- The terminal is its own input surface: while the Shell tab is active the
+  ordinary prompt bar is hidden (`data-conversation-composer-hidden`), so the
+  column is all terminal; pending approval/question panels still surface above
+  it.
 - Killing or restarting is one click (top-right of the tab); a closed session
   (or plugin unload) terminates its shell automatically.
 
