@@ -1,0 +1,6 @@
+packages:
+  - '.'
+autoInstallPeers: true
+nodeLinker: hoisted
+allowBuilds:
+  node-pty: true

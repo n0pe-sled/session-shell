@@ -1,0 +1,10 @@
+# The dsh-session-shell bundle layer: one insert row that is BOTH the
+# host-half entry (PTY registry + Typert remote) and the browser-roster entry
+# (the client-modules host half scans enabled Loader entries for packages
+# declaring `dsh.client`). Activation is service-availability driven: the host
+# half injects `sessions` and `typert` (mounted by dsh-base), and the browser
+# half injects `slots` and `remote` (mounted by the web-app client composition).
+
+- insert:
+    - id: session-shell
+      name: dsh-session-shell
