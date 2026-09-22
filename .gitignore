@@ -1,5 +1,15 @@
+# Machine-local package state (never commit)
 node_modules/
 .pnpm-store/
+
+# Editor / OS noise
+.DS_Store
+*.log
+
+# Build and test residue
+coverage/
+*.tsbuildinfo
+
 # Build output: produced per-platform by `dsh-manage` (lib/.dsh-build-target
 # records the target); never committed.
 lib/
